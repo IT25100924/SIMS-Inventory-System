@@ -1,0 +1,3 @@
+OUT-001!P001!2!2023-10-15!Retail Store A!1200.00
+OUT-002!P002!5!2023-10-16!Online Customer!25.50
+OUT-003!P004!1!2023-10-18!Corporate Office!300.00

@@ -1,0 +1,5 @@
+P001!Laptop Pro X!1200.00!15
+P002!Wireless Mouse!25.50!50
+P003!Mechanical Keyboard!85.00!30
+P004!27-inch Monitor!300.00!10
+P005!USB-C Hub!45.00!5
