@@ -277,7 +277,7 @@
                     </form>
 
                     <div class="login-footer">
-                        &copy; 2025 SIMS &mdash; Inventory Management
+                        &copy; 2026 SIMS
                     </div>
         </div>
 

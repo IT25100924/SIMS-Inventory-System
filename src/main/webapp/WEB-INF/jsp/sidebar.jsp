@@ -54,4 +54,16 @@
                     </a>
                 </li>
             </ul>
+
+            <hr style="border-color: rgba(255,255,255,0.15); margin: 8px 16px;">
+
+            <ul class="sidebar-menu" style="margin-top:0;">
+                <li class="sidebar-item">
+                    <a href="${pageContext.request.contextPath}/logout" class="sidebar-link" style="color:#ff6b6b;"
+                        onmouseover="this.style.background='rgba(255,107,107,0.12)'"
+                        onmouseout="this.style.background=''">
+                        <i class="bi bi-box-arrow-left"></i> Log Out
+                    </a>
+                </li>
+            </ul>
         </nav>
