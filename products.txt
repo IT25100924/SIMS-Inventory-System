@@ -1,5 +1,6 @@
-P001!Laptop Pro X!1200.00!15
-P002!Wireless Mouse!25.50!50
-P003!Mechanical Keyboard!85.00!30
-P004!27-inch Monitor!300.00!10
-P005!USB-C Hub!45.00!5
+000001!Laptop Pro X!1200.0!15
+000002!Wireless Mouse!25.5!50
+000003!Mechanical Keyboard!85.0!30
+000004!27-inch Monitor!300.0!10
+000005!USB-C Hub!45.0!5
+000006!Small Pots!1000.0!5

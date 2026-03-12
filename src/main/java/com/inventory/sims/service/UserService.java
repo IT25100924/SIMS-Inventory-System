@@ -6,7 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.UUID;
+import java.util.stream.Collectors;
+import com.inventory.sims.util.IdGenerator;
 
 @Service
 public class UserService {
@@ -16,7 +17,10 @@ public class UserService {
 
     public void addUser(User user) {
         if (user.getId() == null || user.getId().isEmpty()) {
-            user.setId(UUID.randomUUID().toString());
+            List<String> existingIds = userRepository.findAll().stream()
+                    .map(User::getId)
+                    .collect(Collectors.toList());
+            user.setId(IdGenerator.generateId(existingIds));
         }
         userRepository.save(user);
     }
@@ -38,5 +42,12 @@ public class UserService {
 
     public void deleteUser(String id) {
         userRepository.delete(id);
+    }
+
+    public User findByEmailAndPassword(String email, String password) {
+        return userRepository.findAll().stream()
+                .filter(u -> u.getEmail().equalsIgnoreCase(email) && u.getPassword().equals(password))
+                .findFirst()
+                .orElse(null);
     }
 }

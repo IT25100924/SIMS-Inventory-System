@@ -8,23 +8,27 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.UUID;
+import java.util.stream.Collectors;
+import com.inventory.sims.util.IdGenerator;
 
 @Service
 public class StockInService {
 
     @Autowired
     private StockInRepository stockInRepository;
-    
+
     @Autowired
     private ProductRepository productRepository;
 
     public void addStockIn(StockIn stockIn) {
         if (stockIn.getId() == null || stockIn.getId().isEmpty()) {
-            stockIn.setId(UUID.randomUUID().toString());
+            List<String> existingIds = stockInRepository.findAll().stream()
+                    .map(StockIn::getId)
+                    .collect(Collectors.toList());
+            stockIn.setId(IdGenerator.generateId(existingIds));
         }
         stockInRepository.save(stockIn);
-        
+
         // Business logic: Update product quantity
         Product p = productRepository.findAll().stream()
                 .filter(prod -> prod.getId().equals(stockIn.getProductId()))

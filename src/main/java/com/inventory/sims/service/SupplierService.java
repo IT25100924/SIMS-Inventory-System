@@ -6,7 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.UUID;
+import java.util.stream.Collectors;
+import com.inventory.sims.util.IdGenerator;
 
 @Service
 public class SupplierService {
@@ -16,7 +17,10 @@ public class SupplierService {
 
     public void addSupplier(Supplier supplier) {
         if (supplier.getId() == null || supplier.getId().isEmpty()) {
-            supplier.setId(UUID.randomUUID().toString());
+            List<String> existingIds = supplierRepository.findAll().stream()
+                    .map(Supplier::getId)
+                    .collect(Collectors.toList());
+            supplier.setId(IdGenerator.generateId(existingIds));
         }
         supplierRepository.save(supplier);
     }

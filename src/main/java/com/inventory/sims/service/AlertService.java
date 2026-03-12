@@ -6,7 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.UUID;
+import java.util.stream.Collectors;
+import com.inventory.sims.util.IdGenerator;
 
 @Service
 public class AlertService {
@@ -16,7 +17,10 @@ public class AlertService {
 
     public void addAlert(Alert alert) {
         if (alert.getId() == null || alert.getId().isEmpty()) {
-            alert.setId(UUID.randomUUID().toString());
+            List<String> existingIds = alertRepository.findAll().stream()
+                    .map(Alert::getId)
+                    .collect(Collectors.toList());
+            alert.setId(IdGenerator.generateId(existingIds));
         }
         alertRepository.save(alert);
     }

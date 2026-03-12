@@ -7,6 +7,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import jakarta.servlet.http.HttpSession;
+
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -27,7 +29,7 @@ public class HomeController {
     private SupplierService supplierService;
 
     @GetMapping("/")
-    public String home(Model model) {
+    public String home(Model model, HttpSession session) {
         // 1. Total Items (Sum of all product quantities)
         int totalItems = productService.getAllProducts().stream()
                 .mapToInt(Product::getQuantity).sum();

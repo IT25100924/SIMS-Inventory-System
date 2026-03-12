@@ -1,0 +1,19 @@
+﻿  andError
+[ERROR] COMPILATION ERROR : 
+[ERROR] /C:/Users/dovin/Downloads/SIMS/SIMS-Inventory-System/src/main/java/com/inventory/sims/controller/HomeController.java:[4,36] cannot find symbol
+[ERROR] /C:/Users/dovin/Downloads/SIMS/SIMS-Inventory-System/src/main/java/com/inventory/sims/controller/HomeController.java:[9,6] cannot find symbol
+[INFO] 2 errors 
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.11.0:compile (default-compile) on project sims: Compilation failure: Compilation failure: 
+[ERROR] /C:/Users/dovin/Downloads/SIMS/SIMS-Inventory-System/src/main/java/com/inventory/sims/controller/HomeController.java:[4,36] cannot find symbol
+[ERROR]   symbol:   class GetMapping
+[ERROR]   location: package org.springframework.web.bind
+[ERROR] /C:/Users/dovin/Downloads/SIMS/SIMS-Inventory-System/src/main/java/com/inventory/sims/controller/HomeController.java:[9,6] cannot find symbol
+[ERROR]   symbol:   class GetMapping
+[ERROR]   location: class com.inventory.sims.controller.HomeController
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

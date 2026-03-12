@@ -6,7 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.UUID;
+import java.util.stream.Collectors;
+import com.inventory.sims.util.IdGenerator;
 
 @Service
 public class ProductService {
@@ -16,7 +17,10 @@ public class ProductService {
 
     public void addProduct(Product product) {
         if (product.getId() == null || product.getId().isEmpty()) {
-            product.setId(UUID.randomUUID().toString());
+            List<String> existingIds = productRepository.findAll().stream()
+                    .map(Product::getId)
+                    .collect(Collectors.toList());
+            product.setId(IdGenerator.generateId(existingIds));
         }
         productRepository.save(product);
     }
