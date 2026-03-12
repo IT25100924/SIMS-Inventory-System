@@ -2,8 +2,10 @@
     <%@ taglib uri="jakarta.tags.core" prefix="c" %>
         <!-- Sidebar Component -->
         <nav class="sidebar">
-            <a href="${pageContext.request.contextPath}/" class="sidebar-brand">
-                <i class="bi bi-box-seam-fill"></i> SIMS
+            <a href="${pageContext.request.contextPath}/" class="sidebar-brand d-flex align-items-center">
+                <img src="${pageContext.request.contextPath}/images/sims-logo.png" alt="SIMS Logo"
+                    style="width: 32px; height: 32px; margin-right: 10px;">
+                SIMS
             </a>
 
             <ul class="sidebar-menu">

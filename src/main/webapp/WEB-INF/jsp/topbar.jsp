@@ -10,11 +10,6 @@
             %>
             <!-- Topbar Component -->
             <header class="topbar">
-                <div class="search-bar">
-                    <i class="bi bi-search"></i>
-                    <input type="text" placeholder="Search inventory...">
-                </div>
-
                 <div class="topbar-right">
                     <div class="notification-bell">
                         <i class="bi bi-bell-fill"></i>
