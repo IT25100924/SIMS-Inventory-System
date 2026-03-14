@@ -2,10 +2,11 @@
     <%@ taglib uri="jakarta.tags.core" prefix="c" %>
         <!-- Sidebar Component -->
         <nav class="sidebar">
-            <a href="${pageContext.request.contextPath}/" class="sidebar-brand d-flex align-items-center">
-                <img src="${pageContext.request.contextPath}/images/sims-logo.png" alt="SIMS Logo"
-                    style="width: 32px; height: 32px; margin-right: 10px;">
-                SIMS
+            <a href="${pageContext.request.contextPath}/" class="brand-container" style="padding: 24px; display: flex; align-items: center; gap: 12px; text-decoration: none; width: 100%; box-sizing: border-box;">
+                <div class="brand-icon" style="width: 32px; height: 32px; border-radius: 9px; background: linear-gradient(135deg, #8a2be2 0%, #aa00ff 100%); display: flex; align-items: center; justify-content: center; color: #fff; font-size: 1.1rem; box-shadow: 0 4px 10px rgba(138, 43, 226, 0.3); flex-shrink: 0;">
+                    <i class="bi bi-boxes"></i>
+                </div>
+                <span class="brand-name" style="font-size: 1.5rem; font-weight: 800; background: linear-gradient(135deg, #8a2be2 0%, #aa00ff 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; color: #8a2be2; letter-spacing: -0.5px;">SIMS</span>
             </a>
 
             <ul class="sidebar-menu">

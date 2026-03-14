@@ -77,31 +77,34 @@
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                gap: 10px;
+                gap: 16px;
                 margin-bottom: 8px;
+                text-decoration: none;
+                width: 100%;
             }
 
-            .login-brand-icon {
-                width: 48px;
-                height: 48px;
-                border-radius: 14px;
-                background: var(--primary-gradient);
+            .login-brand .brand-icon {
+                width: 56px;
+                height: 56px;
+                font-size: 1.8rem;
+                border-radius: 16px;
+                background: linear-gradient(135deg, #8a2be2 0%, #aa00ff 100%) !important;
+                color: #fff !important;
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                color: #fff;
-                font-size: 1.5rem;
-                box-shadow: 0 4px 14px rgba(138, 43, 226, 0.4);
+                box-shadow: 0 8px 20px rgba(138, 43, 226, 0.35);
             }
 
-            .login-brand-name {
-                font-size: 1.9rem;
+            .login-brand .brand-name {
+                font-size: 2.2rem;
                 font-weight: 800;
-                background: var(--primary-gradient);
+                background: linear-gradient(135deg, #8a2be2 0%, #aa00ff 100%);
                 -webkit-background-clip: text;
                 -webkit-text-fill-color: transparent;
                 background-clip: text;
-                letter-spacing: -0.5px;
+                color: #8a2be2;
+                letter-spacing: -1px;
             }
 
             .login-subtitle {
@@ -232,11 +235,11 @@
         <div class="login-card">
 
             <!-- Brand -->
-            <div class="login-brand">
-                <div class="login-brand-icon">
+            <div class="login-brand brand-container">
+                <div class="brand-icon">
                     <i class="bi bi-boxes"></i>
                 </div>
-                <span class="login-brand-name">SIMS</span>
+                <span class="brand-name">SIMS</span>
             </div>
             <p class="login-subtitle">Smart Inventory Management System</p>
 
