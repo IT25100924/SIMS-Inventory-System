@@ -28,16 +28,7 @@ public class StockInService {
             stockIn.setId(IdGenerator.generateId(existingIds));
         }
         stockInRepository.save(stockIn);
-
-        // Business logic: Update product quantity
-        Product p = productRepository.findAll().stream()
-                .filter(prod -> prod.getId().equals(stockIn.getProductId()))
-                .findFirst()
-                .orElse(null);
-        if (p != null) {
-            p.setQuantity(p.getQuantity() + stockIn.getQuantity());
-            productRepository.update(p);
-        }
+        applyStockIn(stockIn);
     }
 
     public List<StockIn> getAllStockIns() {
@@ -49,5 +40,43 @@ public class StockInService {
                 .filter(s -> s.getId().equals(id))
                 .findFirst()
                 .orElse(null);
+    }
+
+    public void updateStockIn(StockIn stockIn) {
+        StockIn existing = getStockInById(stockIn.getId());
+        if (existing == null) {
+            return;
+        }
+        revertStockIn(existing);
+        stockInRepository.update(stockIn);
+        applyStockIn(stockIn);
+    }
+
+    public void deleteStockIn(String id) {
+        StockIn existing = getStockInById(id);
+        if (existing == null) {
+            return;
+        }
+        revertStockIn(existing);
+        stockInRepository.delete(id);
+    }
+
+    private void applyStockIn(StockIn stockIn) {
+        adjustProductQuantity(stockIn.getProductId(), stockIn.getQuantity());
+    }
+
+    private void revertStockIn(StockIn stockIn) {
+        adjustProductQuantity(stockIn.getProductId(), -stockIn.getQuantity());
+    }
+
+    private void adjustProductQuantity(String productId, int quantityDelta) {
+        Product product = productRepository.findAll().stream()
+                .filter(prod -> prod.getId().equals(productId))
+                .findFirst()
+                .orElse(null);
+        if (product != null) {
+            product.setQuantity(product.getQuantity() + quantityDelta);
+            productRepository.update(product);
+        }
     }
 }

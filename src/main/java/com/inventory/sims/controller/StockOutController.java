@@ -36,4 +36,27 @@ public class StockOutController {
         stockOutService.addStockOut(stockOut);
         return "redirect:/stockout";
     }
+
+    @GetMapping("/edit/{id}")
+    public String showEditStockOutForm(@PathVariable String id, Model model) {
+        StockOut stockOut = stockOutService.getStockOutById(id);
+        if (stockOut == null) {
+            return "redirect:/stockout";
+        }
+        model.addAttribute("stockOut", stockOut);
+        model.addAttribute("products", productService.getAllProducts());
+        return "editStockOut";
+    }
+
+    @PostMapping("/edit")
+    public String editStockOut(@ModelAttribute StockOut stockOut) {
+        stockOutService.updateStockOut(stockOut);
+        return "redirect:/stockout";
+    }
+
+    @GetMapping("/delete/{id}")
+    public String deleteStockOut(@PathVariable String id) {
+        stockOutService.deleteStockOut(id);
+        return "redirect:/stockout";
+    }
 }

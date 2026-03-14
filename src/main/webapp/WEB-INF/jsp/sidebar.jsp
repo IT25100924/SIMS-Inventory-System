@@ -2,11 +2,19 @@
     <%@ taglib uri="jakarta.tags.core" prefix="c" %>
         <!-- Sidebar Component -->
         <nav class="sidebar">
-            <a href="${pageContext.request.contextPath}/" class="brand-container" style="padding: 24px; display: flex; align-items: center; gap: 12px; text-decoration: none; width: 100%; box-sizing: border-box;">
-                <div class="brand-icon" style="width: 32px; height: 32px; border-radius: 9px; background: linear-gradient(135deg, #8a2be2 0%, #aa00ff 100%); display: flex; align-items: center; justify-content: center; color: #fff; font-size: 1.1rem; box-shadow: 0 4px 10px rgba(138, 43, 226, 0.3); flex-shrink: 0;">
-                    <i class="bi bi-boxes"></i>
+            <a href="${pageContext.request.contextPath}/" class="brand-container"
+                style="display:flex;align-items:center;gap:12px;margin:20px 20px 18px;padding-bottom:18px;border-bottom:1px solid #eef0f4;text-decoration:none;">
+                <div class="brand-mark"
+                    style="width:42px;height:42px;min-width:42px;border-radius:12px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#f3e8ff 0%,#ffffff 100%);box-shadow:0 6px 16px rgba(138,43,226,0.12);overflow:hidden;">
+                    <img src="${pageContext.request.contextPath}/images/sims-logo.png" alt="SIMS logo" class="brand-logo"
+                        style="width:26px;height:26px;display:block;object-fit:contain;">
                 </div>
-                <span class="brand-name" style="font-size: 1.5rem; font-weight: 800; background: linear-gradient(135deg, #8a2be2 0%, #aa00ff 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; color: #8a2be2; letter-spacing: -0.5px;">SIMS</span>
+                <div class="brand-copy" style="display:flex;flex-direction:column;min-width:0;line-height:1.1;">
+                    <span class="brand-name"
+                        style="font-family:'Inter',sans-serif;font-size:1.2rem;font-weight:800;letter-spacing:-0.03em;color:#1f2937;">SIMS</span>
+                    <span class="brand-tagline"
+                        style="font-family:'Inter',sans-serif;margin-top:4px;font-size:0.7rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#7c3aed;">Inventory System</span>
+                </div>
             </a>
 
             <ul class="sidebar-menu">
@@ -56,13 +64,13 @@
                 </li>
             </ul>
 
-            <hr style="border-color: rgba(255,255,255,0.15); margin: 8px 16px;">
-
-            <ul class="sidebar-menu" style="margin-top:0;">
+            <ul class="sidebar-menu sidebar-menu-secondary"
+                style="margin-top:auto;padding-top:18px;padding-bottom:20px;border-top:1px solid #e9ecef;">
                 <li class="sidebar-item">
-                    <a href="${pageContext.request.contextPath}/logout" class="sidebar-link" style="color:#ff6b6b;"
-                        onmouseover="this.style.background='rgba(255,107,107,0.12)'"
-                        onmouseout="this.style.background=''">
+                    <a href="${pageContext.request.contextPath}/logout" class="sidebar-link sidebar-link-logout"
+                        style="color:#dc3545;font-weight:600;"
+                        onmouseover="this.style.backgroundColor='rgba(220,53,69,0.12)'; this.style.color='#dc3545';"
+                        onmouseout="this.style.backgroundColor=''; this.style.color='#dc3545';">
                         <i class="bi bi-box-arrow-left"></i> Log Out
                     </a>
                 </li>

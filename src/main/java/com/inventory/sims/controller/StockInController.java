@@ -9,6 +9,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.stream.Collectors;
+
 @Controller
 @RequestMapping("/stockin")
 public class StockInController {
@@ -25,6 +27,8 @@ public class StockInController {
     @GetMapping
     public String viewStockIn(Model model) {
         model.addAttribute("stockIns", stockInService.getAllStockIns());
+        model.addAttribute("supplierCompanies", supplierService.getAllSuppliers().stream()
+                .collect(Collectors.toMap(supplier -> supplier.getId(), supplier -> supplier.getCompanyName())));
         return "viewStockIn";
     }
 
@@ -39,6 +43,30 @@ public class StockInController {
     @PostMapping("/add")
     public String addStockIn(@ModelAttribute StockIn stockIn) {
         stockInService.addStockIn(stockIn);
+        return "redirect:/stockin";
+    }
+
+    @GetMapping("/edit/{id}")
+    public String showEditStockInForm(@PathVariable String id, Model model) {
+        StockIn stockIn = stockInService.getStockInById(id);
+        if (stockIn == null) {
+            return "redirect:/stockin";
+        }
+        model.addAttribute("stockIn", stockIn);
+        model.addAttribute("products", productService.getAllProducts());
+        model.addAttribute("suppliers", supplierService.getAllSuppliers());
+        return "editStockIn";
+    }
+
+    @PostMapping("/edit")
+    public String editStockIn(@ModelAttribute StockIn stockIn) {
+        stockInService.updateStockIn(stockIn);
+        return "redirect:/stockin";
+    }
+
+    @GetMapping("/delete/{id}")
+    public String deleteStockIn(@PathVariable String id) {
+        stockInService.deleteStockIn(id);
         return "redirect:/stockin";
     }
 }

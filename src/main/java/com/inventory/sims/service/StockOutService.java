@@ -28,16 +28,7 @@ public class StockOutService {
             stockOut.setId(IdGenerator.generateId(existingIds));
         }
         stockOutRepository.save(stockOut);
-
-        // Business logic: Update product quantity
-        Product p = productRepository.findAll().stream()
-                .filter(prod -> prod.getId().equals(stockOut.getProductId()))
-                .findFirst()
-                .orElse(null);
-        if (p != null) {
-            p.setQuantity(p.getQuantity() - stockOut.getQuantity());
-            productRepository.update(p);
-        }
+        applyStockOut(stockOut);
     }
 
     public List<StockOut> getAllStockOuts() {
@@ -49,5 +40,43 @@ public class StockOutService {
                 .filter(s -> s.getId().equals(id))
                 .findFirst()
                 .orElse(null);
+    }
+
+    public void updateStockOut(StockOut stockOut) {
+        StockOut existing = getStockOutById(stockOut.getId());
+        if (existing == null) {
+            return;
+        }
+        revertStockOut(existing);
+        stockOutRepository.update(stockOut);
+        applyStockOut(stockOut);
+    }
+
+    public void deleteStockOut(String id) {
+        StockOut existing = getStockOutById(id);
+        if (existing == null) {
+            return;
+        }
+        revertStockOut(existing);
+        stockOutRepository.delete(id);
+    }
+
+    private void applyStockOut(StockOut stockOut) {
+        adjustProductQuantity(stockOut.getProductId(), -stockOut.getQuantity());
+    }
+
+    private void revertStockOut(StockOut stockOut) {
+        adjustProductQuantity(stockOut.getProductId(), stockOut.getQuantity());
+    }
+
+    private void adjustProductQuantity(String productId, int quantityDelta) {
+        Product product = productRepository.findAll().stream()
+                .filter(prod -> prod.getId().equals(productId))
+                .findFirst()
+                .orElse(null);
+        if (product != null) {
+            product.setQuantity(product.getQuantity() + quantityDelta);
+            productRepository.update(product);
+        }
     }
 }

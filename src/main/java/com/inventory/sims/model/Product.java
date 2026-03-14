@@ -28,6 +28,6 @@ public class Product {
     public void setQuantity(int quantity) { this.quantity = quantity; }
 
     public String displayDetails() {
-        return "Product: " + name + " (Qty: " + quantity + ", Price: $" + price + ")";
+        return "Product: " + name + " (Qty: " + quantity + ", Price: LKR " + price + ")";
     }
 }

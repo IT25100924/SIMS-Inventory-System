@@ -37,8 +37,6 @@
                                     <div class="stat-info">
                                         <span class="stat-label">Total Items</span>
                                         <span class="stat-value">${totalItems}</span>
-                                        <span class="stat-trend trend-up"><i class="bi bi-arrow-up-right"></i> +12% from
-                                            last month</span>
                                     </div>
                                     <div class="stat-icon icon-purple">
                                         <i class="bi bi-stack"></i>
@@ -52,9 +50,6 @@
                                     <div class="stat-info">
                                         <span class="stat-label">Low Stock Alerts</span>
                                         <span class="stat-value text-danger">${lowStockAlerts}</span>
-                                        <span class="stat-trend trend-down"><i class="bi bi-exclamation-triangle"></i>
-                                            Needs
-                                            immediate action</span>
                                     </div>
                                     <div class="stat-icon icon-red">
                                         <i class="bi bi-exclamation-circle"></i>
@@ -68,8 +63,6 @@
                                     <div class="stat-info">
                                         <span class="stat-label">Today's Shipments</span>
                                         <span class="stat-value">${todayShipments}</span>
-                                        <span class="stat-trend trend-up"><i class="bi bi-check-circle"></i> 98% on
-                                            time</span>
                                     </div>
                                     <div class="stat-icon icon-purple">
                                         <i class="bi bi-truck"></i>
@@ -83,8 +76,6 @@
                                     <div class="stat-info">
                                         <span class="stat-label">Total Suppliers</span>
                                         <span class="stat-value">${totalSuppliers}</span>
-                                        <span class="stat-trend trend-up"><i class="bi bi-plus"></i> 3 new this
-                                            week</span>
                                     </div>
                                     <div class="stat-icon icon-purple">
                                         <i class="bi bi-shop"></i>

@@ -32,7 +32,7 @@
                                         required>
                                 </div>
                                 <div class="mb-3">
-                                    <label class="form-label">Unit Price ($)</label>
+                                    <label class="form-label">Unit Price (LKR)</label>
                                     <input type="number" step="0.01" name="price" class="form-control"
                                         value="${product.price}" required>
                                 </div>

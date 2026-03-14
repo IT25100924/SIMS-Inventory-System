@@ -3,4 +3,4 @@
 000003!Mechanical Keyboard!85.0!30
 000004!27-inch Monitor!300.0!10
 000005!USB-C Hub!45.0!5
-000006!Small Pots!1000.0!5
+000006!Small Pots!1000.0!65
